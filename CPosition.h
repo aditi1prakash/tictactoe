@@ -28,13 +28,18 @@ public:
      * @return std::uint8_t - m_row 
      */
     std::uint8_t getRow() const;
-
     
     /*!
      * @brief Const getter method for columns 
      * @return std::uint8_t - m_column
      */
     std::uint8_t getColumn() const;
+
+    /*!
+     * @brief Destructor CPosition class
+     */
+    ~CPosition();
+
 };
 
 #endif

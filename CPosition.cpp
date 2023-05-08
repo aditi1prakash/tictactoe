@@ -8,9 +8,7 @@
 #include "CPosition.h"
 
 CPosition::CPosition(uint8_t row, uint8_t column):m_row{row}, m_column{column}
-{
-
-}
+{}
 
 std::uint8_t CPosition::getRow() const
 {
