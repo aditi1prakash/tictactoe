@@ -10,9 +10,12 @@
 
 #include <iostream>
 
+#include "CBoard.h"
+
 class CGame 
 {
 private:
+    CBoard *board;
 
 public:
 
@@ -22,11 +25,20 @@ public:
     CGame();
 
     /*!
-     * @brief 
+     * @brief Method to set initial settings
+     * @details No of players, board dimensions, etc..
+     * @param[IN] 
+     * @param[OUT] 
+     */
+    void initialize();
+
+    /*!
+     * @brief Method to invoke to begin the game
      * @details 
      * @param[IN] 
      * @param[OUT] 
      */
+    void play();
 
     /*!
      * @brief Destructor CGame class
