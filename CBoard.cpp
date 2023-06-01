@@ -7,9 +7,14 @@
 
 #include "CBoard.h"
 
-CBoard::CBoard(uint8_t rows, uint8_t columns):m_rows{rows},m_columns{columns}
+#define NUMBER_OF_ROWS      3
+#define NUMBER_OF_COLUMNS   3
+
+CBoard::CBoard()
 {
-    boardChar = '#';
+    m_boardChar = '#';
+    this->m_rows = NUMBER_OF_ROWS;
+    this->m_columns = NUMBER_OF_COLUMNS;
 }
 
 uint8_t CBoard::getRows() const
@@ -34,13 +39,15 @@ void CBoard::setColumns(uint8_t columns)
 
 void CBoard::print()
 {
+    std::cout << std::endl;
+    
     for(int row = 0; row < m_rows; row++)
     {
         for(int column = 0; column < m_columns; column++)
         {
-            std::cout << boardChar << " ";
+            std::cout << m_boardChar << " ";
         }
-        std::endl;
+        std::cout << std::endl;
     }
 }
 

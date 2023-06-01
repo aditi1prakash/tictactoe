@@ -7,6 +7,7 @@ int main()
     std::cout << "Hello world!";
 
     CGame game;
+    game.play();
 
     return 0;
 }

@@ -7,12 +7,14 @@
 
 #include "CPosition.h"
 
+CPosition::CPosition() {}
+
 CPosition::CPosition(uint8_t row, uint8_t column):m_row{row}, m_column{column}
 {}
 
 std::uint8_t CPosition::getRow() const
 {
-    return  m_row;
+    return m_row;
 }
 
 std::uint8_t CPosition::getColumn() const
@@ -20,3 +22,4 @@ std::uint8_t CPosition::getColumn() const
     return m_column;
 }
     
+CPosition::~CPosition() {}

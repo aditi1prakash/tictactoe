@@ -9,13 +9,16 @@
 #define CPLAYER_H_
 
 #include <iostream>
+#include "CBoard.h"
 
 class CPlayer
 {
 private:
-    unsigned char m_playerChar;     /*! @brief Character that represents the player during the game */
-    uint8_t m_moves;                /*! @brief Number of moves the player has */
+    char m_stoneChar;               /*! @brief Character that represents the player during the game */
+    //uint8_t m_moves;              /*! @brief Number of moves the player has */
     uint8_t m_score;                /*! @brief Player's score */
+    CBoard* m_board;                /*! @brief Pointer to board class */
+    // std::string m_playerName;       /*! @brief Name of the player*/
 
 public:
 
@@ -28,17 +31,25 @@ public:
      * @brief Const getter method for player character
      * @details The character that represents the player during the game
      * @param[IN] None
-     * @param[OUT] unsigned char - player character 
+     * @param[OUT] char - player character 
      */
-    unsigned char getPlayerChar() const;
+    char getStoneChar() const;
 
     /*!
      * @brief Setter method for player character
      * @details The character that represents the player during the game
-     * @param[IN] unisgned char - player character
+     * @param[IN] char - player character
      * @param[OUT] None 
      */
-    void setPlayerChar(unsigned char playerChar);
+    void setStoneChar(char playerChar);
+
+    /*!
+     * @brief Place stone on the board
+     * @details Method used to place the player stone on the required position
+     * @param[IN] None
+     * @param[OUT] None 
+     */
+    void placeStone();
 
     /*!
      * @brief Destructor CPlayer class

@@ -19,6 +19,11 @@ private:
 
 public:
     /*!
+     * @brief Default constructor 
+     */
+    CPosition();
+    
+    /*!
      * @brief Parametrized constructor 
      */
     CPosition(std::uint8_t row, std::uint8_t column);

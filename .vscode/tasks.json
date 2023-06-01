@@ -11,7 +11,7 @@
 				"${workspaceFolder}/*.cpp",
 				"${workspaceFolder}/*.h",
 				"-o",
-				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+				"${workspaceFolder}\\tictactoe.exe"
 			],
 			"options": {
 				"cwd": "${fileDirname}"

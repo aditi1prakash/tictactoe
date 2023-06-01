@@ -2,8 +2,8 @@
 
 CPosition - To address a particular position on the board
 CPlayer - A class for the players in the game
-Board - The board for the game
-Game - The game that will be played
+CBoard - The board for the game
+CGame - The game that will be played
 
 Game: Init() //Assumption: tictactoe game
 - Initialize two players from player class

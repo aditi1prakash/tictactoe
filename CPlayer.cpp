@@ -10,14 +10,23 @@
 CPlayer::CPlayer()
 {}
 
-unsigned char CPlayer::getPlayerChar() const
+char CPlayer::getStoneChar() const
 {
-    return m_playerChar;
+    return m_stoneChar;
 }
 
-void CPlayer::setPlayerChar(unsigned char playerChar)
+void CPlayer::setStoneChar(char playerChar)
 {
-    this->m_playerChar = playerChar;
+    this->m_stoneChar = playerChar;
+}
+
+void CPlayer::placeStone()
+{
+    std::cout << "place stone method" << std::endl;
+    /* Request user for the position where the stone is to be placed
+     * Check whether the position is empty
+     * Place the stone if empty, else request for a different position
+     */
 }
 
 CPlayer::~CPlayer()

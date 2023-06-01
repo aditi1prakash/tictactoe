@@ -11,11 +11,15 @@
 #include <iostream>
 
 #include "CBoard.h"
+#include "CPlayer.h"
+
+static const uint8_t NUMBER_OF_PLAYERS {2};
 
 class CGame 
 {
 private:
-    CBoard *board;
+    CBoard* m_board;
+    CPlayer* m_player[NUMBER_OF_PLAYERS];
 
 public:
 
