@@ -45,6 +45,22 @@ public:
     void play();
 
     /*!
+     * @brief Method to invoke to begin the game
+     * @details 
+     * @param[IN] 
+     * @param[OUT] 
+     */
+    void checkWinner();
+
+    /*!
+     * @brief Method to invoke to begin the game
+     * @details 
+     * @param[IN] 
+     * @param[OUT] 
+     */
+    void printBoard();
+
+    /*!
      * @brief Destructor CGame class
      */
     ~CGame();

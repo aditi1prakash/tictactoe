@@ -51,5 +51,10 @@ void CBoard::print()
     }
 }
 
+bool CBoard::isPositionEmpty(uint8_t row, uint8_t column)
+{
+    return true;
+}
+
 CBoard::~CBoard()
 {}
