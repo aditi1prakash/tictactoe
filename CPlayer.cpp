@@ -7,8 +7,8 @@
 
 #include "CPlayer.h"
 
-CPlayer::CPlayer()
-{}
+CPlayer::CPlayer(CBoard* playerBoard)
+    :m_board{playerBoard}{}
 
 char CPlayer::getStoneChar() const
 {
@@ -27,6 +27,7 @@ void CPlayer::placeStone(CPosition position)
     std::cout << "Player stone: " << this->getStoneChar() << std::endl;
 
     m_board->setElementAt(position.getRow(),position.getColumn(), this->getStoneChar());
+    m_board->print();
 
     /* Request user for the position where the stone is to be placed
      * Check whether the position is empty

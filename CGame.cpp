@@ -19,14 +19,16 @@ CGame::CGame()
 void CGame::initialize()
 {
     m_board = new CBoard(3,3);  
-    m_player[0] = new CPlayer();
-    m_player[1] = new CPlayer();
+    m_player[0] = new CPlayer(m_board);
+    m_player[1] = new CPlayer(m_board);
 }
 
 void CGame::play()
 {
     m_player[0]->setStoneChar('o');
     m_player[1]->setStoneChar('x');
+    // m_player[0]->m_board = this->m_board;   //Option1: Assign game class board object to player class board object
+    //Option 2: Pass the board object while creating the players
 
     m_board->print(); 
 
@@ -38,11 +40,7 @@ void CGame::play()
     for(int moves = 0; moves < NUMBER_OF_MOVES; moves++)
     {
         /*Read the row and column where the player wishes to place their stone*/
-        std::cout << "Enter the row number: ";
-        std::cin >> row_number;
-
-        std::cout << std::endl << "Enter the column number: ";
-        std::cin >> column_number;
+0
 
         CPosition position{row_number, column_number};
 

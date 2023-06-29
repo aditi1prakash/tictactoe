@@ -25,7 +25,7 @@ public:
     /*!
      * @brief Constructor CPlayer class
      */
-    CPlayer();
+    CPlayer(CBoard* playerboard);
 
     /*!
      * @brief Const getter method for player character
