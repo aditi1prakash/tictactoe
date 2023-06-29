@@ -49,7 +49,7 @@ public:
      * @param[IN] None
      * @param[OUT] None 
      */
-    void placeStone();
+    void placeStone(CPosition pos);
 
     /*!
      * @brief Destructor CPlayer class

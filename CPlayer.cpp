@@ -20,12 +20,14 @@ void CPlayer::setStoneChar(char playerChar)
     this->m_stoneChar = playerChar;
 }
 
-void CPlayer::placeStone()
+void CPlayer::placeStone(CPosition position)
 {
     std::cout << "place stone method" << std::endl;
 
     std::cout << "Player stone: " << this->getStoneChar() << std::endl;
-    
+
+    m_board->setElementAt(position.getRow(),position.getColumn(), this->getStoneChar());
+
     /* Request user for the position where the stone is to be placed
      * Check whether the position is empty
      * Place the stone if empty, else request for a different position

@@ -10,31 +10,15 @@
 #define NUMBER_OF_ROWS      3
 #define NUMBER_OF_COLUMNS   3
 
-CBoard::CBoard()
-{
-    m_boardChar = '#';
-    this->m_rows = NUMBER_OF_ROWS;
-    this->m_columns = NUMBER_OF_COLUMNS;
-}
 
-uint8_t CBoard::getRows() const
+CBoard::CBoard(uint8_t rows, uint8_t columns):
+    m_rows{rows}, m_columns{columns}
 {
-    return m_rows;
-}
+    for(int i = 0; i < (m_columns*m_rows); i++)
+    {
+        m_board.emplace_back(DEFAULT_BOARD_CHAR);
 
-uint8_t CBoard::getColumns() const
-{
-    return m_columns;
-}
-
-void CBoard::setRows(uint8_t rows)
-{
-    this->m_rows = rows;
-}
-
-void CBoard::setColumns(uint8_t columns)
-{
-    this->m_columns = columns;
+    }
 }
 
 void CBoard::print()
@@ -45,15 +29,23 @@ void CBoard::print()
     {
         for(int column = 0; column < m_columns; column++)
         {
-            std::cout << m_boardChar << " ";
+            std::cout << m_board.at(row).at(column) << " ";  //TODO: Complete the logic to access board with a 2D 
         }
         std::cout << std::endl;
     }
 }
 
-bool CBoard::isPositionEmpty(uint8_t row, uint8_t column)
+bool CBoard::isPositionEmpty (uint8_t row, uint8_t column)
 {
-    return true;
+    if (m_board.at(row).at(column) == DEFAULT_BOARD_CHAR)
+        return true;
+    else    
+        return false;
+}
+
+void CBoard::setElementAt (uint8_t row, uint8_t column, char element)
+{
+    m_board.at(row).at(column) = element;
 }
 
 CBoard::~CBoard()

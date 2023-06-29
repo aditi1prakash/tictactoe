@@ -9,22 +9,28 @@
 #define CBOARD_H_
 
 #include <iostream>
+#include <vector>
 #include "CPosition.h"
+
+#define DEFAULT_BOARD_CHAR  '#'
 
 class CBoard 
 {
 private:
     uint8_t m_rows;         /*! @brief Number of rows on the board*/
     uint8_t m_columns;      /*! @brief Number of columns on the board*/
-    char    m_boardChar;    /*! @brief Default char on the board before the game begins*/
     CPosition m_position;   /*! @brief Represents a particular position on the board*/
+    std::vector<std::vector<char>> m_board;   /*! @brief Array to represent board with size m_rows*m_columns */ //TODO: Improve array handling
+
+//Create an array for with row and column parameters from within the constructor, 
+//manipulate this array to maintain the player moves and stones
 
 public:
 
     /*!
      * @brief Constructor CBoard class
      */
-    CBoard();
+    CBoard(uint8_t rows, uint8_t columns);
 
     /*!
      * @brief Print the board
@@ -40,7 +46,7 @@ public:
      * @param[IN] 
      * @param[OUT] uint8_t - number of rows on the board
      */
-    uint8_t getRows() const;
+    uint8_t getRows() const {return m_rows;}
 
     /*!
      * @brief Getter method for columns - const
@@ -48,7 +54,7 @@ public:
      * @param[IN] 
      * @param[OUT] uint8_t - number of columns on the board
      */
-    uint8_t getColumns() const;
+    uint8_t getColumns() const {return m_columns;}
     
     /*!
      * @brief Setter method for rows
@@ -56,7 +62,7 @@ public:
      * @param[IN] uint8_t - number of rows required for the board game
      * @param[OUT] 
      */
-    void setRows(uint8_t rows);
+    void setRows(uint8_t rows){this->m_rows = rows;}
     
     /*!
      * @brief Setter method for columns
@@ -64,7 +70,7 @@ public:
      * @param[IN] 
      * @param[OUT] uint8_t - number of columns required for the board game
      */
-    void setColumns(uint8_t columns);
+    void setColumns(uint8_t columns){this->m_columns = columns;}
 
     /*!
      * @brief Method to set the element at a particular position on the board

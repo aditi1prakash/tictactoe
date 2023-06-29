@@ -1,3 +1,6 @@
 {
-    "fileTemplates.author": "Aditi Prakash"
+    "fileTemplates.author": "Aditi Prakash",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }

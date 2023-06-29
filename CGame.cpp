@@ -6,6 +6,7 @@
  */
 
 #include "CGame.h"
+#include "CPosition.h"
 
 static const int NUMBER_OF_MOVES {5};       /*! @brief Number of moves in the game */
 
@@ -17,7 +18,7 @@ CGame::CGame()
 
 void CGame::initialize()
 {
-    m_board = new CBoard();  
+    m_board = new CBoard(3,3);  
     m_player[0] = new CPlayer();
     m_player[1] = new CPlayer();
 }
@@ -43,16 +44,18 @@ void CGame::play()
         std::cout << std::endl << "Enter the column number: ";
         std::cin >> column_number;
 
+        CPosition position{row_number, column_number};
+
         if (m_board->isPositionEmpty(row_number, column_number))
         {
             /*Player 1 is making the move*/
             if(moves % 2 == 0)
             {
-                m_player[0]->placeStone();
+                m_player[0]->placeStone(position);
             }
             else
             {
-                m_player[1]->placeStone();
+                m_player[1]->placeStone(position);
             }
         }
         else
