@@ -14,11 +14,8 @@
 CBoard::CBoard(uint8_t rows, uint8_t columns):
     m_rows{rows}, m_columns{columns}
 {
-    for(int i = 0; i < (m_columns*m_rows); i++)
-    {
-        m_board.emplace_back(DEFAULT_BOARD_CHAR);
-
-    }
+    //2D vector initialization!!!
+    m_board = {3, std::vector<char>(3, DEFAULT_BOARD_CHAR)}; 
 }
 
 void CBoard::print()
