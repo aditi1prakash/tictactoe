@@ -13,13 +13,17 @@
 #include "CBoard.h"
 #include "CPlayer.h"
 
-static const uint8_t NUMBER_OF_PLAYERS {2};
+static const int NUMBER_OF_PLAYERS {2};
 
 class CGame 
 {
 private:
     CBoard* m_board;
     CPlayer* m_player[NUMBER_OF_PLAYERS];
+
+    char _checkRows();
+    char _checkColumns();
+    char _checkDiagonals();
 
 public:
 
@@ -52,13 +56,6 @@ public:
      */
     void checkWinner();
 
-    /*!
-     * @brief Method to invoke to begin the game
-     * @details 
-     * @param[IN] 
-     * @param[OUT] 
-     */
-    void printBoard();
 
     /*!
      * @brief Destructor CGame class
