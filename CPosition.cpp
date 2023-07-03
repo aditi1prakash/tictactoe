@@ -9,15 +9,15 @@
 
 CPosition::CPosition() {}
 
-CPosition::CPosition(uint8_t row, uint8_t column):m_row{row}, m_column{column}
+CPosition::CPosition(int row, int column):m_row{row}, m_column{column}
 {}
 
-std::uint8_t CPosition::getRow() const
+int CPosition::getRow() const
 {
     return m_row;
 }
 
-std::uint8_t CPosition::getColumn() const
+int CPosition::getColumn() const
 {
     return m_column;
 }

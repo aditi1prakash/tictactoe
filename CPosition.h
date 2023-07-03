@@ -14,8 +14,8 @@ class CPosition
 {
 
 private:
-    std::uint8_t m_row;         /*! @brief row position*/
-    std::uint8_t m_column;      /*! @brief column position*/
+    int m_row;         /*! @brief row position*/
+    int m_column;      /*! @brief column position*/
 
 public:
     /*!
@@ -26,19 +26,19 @@ public:
     /*!
      * @brief Parametrized constructor 
      */
-    CPosition(std::uint8_t row, std::uint8_t column);
+    CPosition(int row, int column);
 
     /*!
      * @brief Const getter method for rows 
-     * @return std::uint8_t - m_row 
+     * @return int - m_row 
      */
-    std::uint8_t getRow() const;
+    int getRow() const;
     
     /*!
      * @brief Const getter method for columns 
-     * @return std::uint8_t - m_column
+     * @return int - m_column
      */
-    std::uint8_t getColumn() const;
+    int getColumn() const;
 
     /*!
      * @brief Destructor CPosition class

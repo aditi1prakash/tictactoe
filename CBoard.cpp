@@ -11,11 +11,11 @@
 #define NUMBER_OF_COLUMNS   3
 
 
-CBoard::CBoard(uint8_t rows, uint8_t columns):
+CBoard::CBoard(int rows, int columns):
     m_rows{rows}, m_columns{columns}
 {
     //2D vector initialization!!!
-    m_board = {3, std::vector<char>(3, DEFAULT_BOARD_CHAR)}; 
+    m_boardVector = {3, std::vector<uint8_t>(3, DEFAULT_BOARD_CHAR)}; 
 }
 
 void CBoard::print()
@@ -26,23 +26,31 @@ void CBoard::print()
     {
         for(int column = 0; column < m_columns; column++)
         {
-            std::cout << m_board.at(row).at(column) << " ";  //TODO: Complete the logic to access board with a 2D 
+            std::cout << m_boardVector.at(row).at(column) << " ";  //TODO: Complete the logic to access board with a 2D 
         }
         std::cout << std::endl;
     }
 }
 
-bool CBoard::isPositionEmpty (uint8_t row, uint8_t column)
+bool CBoard::isPositionEmpty (int row, int column)
 {
-    if (m_board.at(row).at(column) == DEFAULT_BOARD_CHAR)
+    // std::cout << "Checking for empty position" << std::endl;
+    // std::cout << row << " " << column;
+
+    if (m_boardVector.at(row).at(column) == DEFAULT_BOARD_CHAR)
         return true;
     else    
         return false;
 }
 
-void CBoard::setElementAt (uint8_t row, uint8_t column, char element)
+void CBoard::setElementAt (int row, int column, char element)
 {
-    m_board.at(row).at(column) = element;
+    m_boardVector.at(row).at(column) = element;
+}
+
+char CBoard::getElementAt (int row, int column)
+{
+    return m_boardVector.at(row).at(column);
 }
 
 CBoard::~CBoard()

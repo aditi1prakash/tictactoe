@@ -22,7 +22,7 @@ void CPlayer::setStoneChar(char playerChar)
 
 void CPlayer::placeStone(CPosition position)
 {
-    std::cout << "place stone method" << std::endl;
+    // std::cout << "place stone method" << std::endl;
 
     std::cout << "Player stone: " << this->getStoneChar() << std::endl;
 
