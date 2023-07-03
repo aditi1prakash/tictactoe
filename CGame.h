@@ -21,9 +21,8 @@ private:
     CBoard* m_board;
     CPlayer* m_player[NUMBER_OF_PLAYERS];
 
-    char _checkRows();
-    char _checkColumns();
-    char _checkDiagonals();
+    bool _winnerAvailable();
+    char _checkWinner();
 
 public:
 

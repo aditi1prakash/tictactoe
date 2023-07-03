@@ -66,9 +66,88 @@ void CGame::play()
             std::cout << "You lost your move, enter the correct position next time \n And, for the programmer: Write better code!";
         }
         
-        checkWinner();
+        if (_winnerAvailable())
+        {
+            break;
+        }
+        else if (moves == (NUMBER_OF_MOVES - 1))
+        {
+            std::cout << "It is a tie!!";
+        }
     }
 }
+
+char CGame::_checkWinner()
+{
+    /* Check both the diagonals */
+    if ((m_board->getElementAt(0, 0) == m_board->getElementAt(1, 1)) && (m_board->getElementAt(0, 0) == m_board->getElementAt(2, 2)))
+    {
+        return m_board->getElementAt(1, 1);
+    }
+    else if ((m_board->getElementAt(0, 2) == m_board->getElementAt(1, 1)) && (m_board->getElementAt(0, 2) == m_board->getElementAt(2, 0)))
+    {
+        return m_board->getElementAt(1, 1);
+    }
+    else
+    {
+       /* do nothing */
+    }
+    
+    /* Check rows - Iterate through the rows and compare the elements*/
+    for (int i = 0; i < m_board->getRows(); i++)
+    {
+        if ((m_board->getElementAt(i,0) == m_board->getElementAt(i,1)) && 
+            (m_board->getElementAt(i,0) == m_board->getElementAt(i,2)))
+        {
+            return m_board->getElementAt(i,0);
+        }
+        else
+        {
+            /* do nothing */
+        }
+    }
+
+    /* Check columns - Iterate through the columns and compare the elements*/
+    for (int i = 0; i < m_board->getColumns(); i++)
+    {
+        if ((m_board->getElementAt(0,i) == m_board->getElementAt(1,i)) && 
+            (m_board->getElementAt(0,i) == m_board->getElementAt(2,i)))
+        {
+            return m_board->getElementAt(0,i);
+        }
+        else
+        {
+            /* do nothing */
+        }
+    }
+    return DEFAULT_BOARD_CHAR;
+}
+
+bool CGame::_winnerAvailable()
+{
+    char result = this->_checkWinner();
+
+    if (result == m_player[0]->getStoneChar())
+    {
+        std::cout << "Player1 wins!! Congratulations" << std::endl;
+    }
+    else if (result == m_player[1]->getStoneChar())
+    {
+        std::cout << "Player2 wins!! Congratulations" << std::endl;
+    }
+    else
+    {
+        return false;
+    }
+    return true;
+}
+
+CGame::~CGame()
+{
+
+}
+
+/* Extra code
 char CGame::_checkDiagonals()
 {
     if ((m_board->getElementAt(0, 0) == m_board->getElementAt(1, 1)) && (m_board->getElementAt(0, 0) == m_board->getElementAt(2, 2)))
@@ -87,7 +166,6 @@ char CGame::_checkDiagonals()
 
 char CGame::_checkColumns()
 {
-    /*Iterate through the columns and compare the elements*/
     for (int i = 0; i < m_board->getColumns(); i++)
     {
         if ((m_board->getElementAt(0,i) == m_board->getElementAt(1,i)) && 
@@ -95,17 +173,13 @@ char CGame::_checkColumns()
         {
             return m_board->getElementAt(0,i);
         }
-        else
-        {
-            /* do nothing */
-        }
+        else{}
     }
     return DEFAULT_BOARD_CHAR;
 }
 
 char CGame::_checkRows()
 {
-    /*Iterate through the rows and compare the elements*/
     for (int i = 0; i < m_board->getRows(); i++)
     {
         if ((m_board->getElementAt(i,0) == m_board->getElementAt(i,1)) && 
@@ -113,38 +187,8 @@ char CGame::_checkRows()
         {
             return m_board->getElementAt(i,0);
         }
-        else
-        {
-            /* do nothing */
-        }
+        else{}
     }
     return DEFAULT_BOARD_CHAR;
 }
-
-void CGame::checkWinner()
-{
-    std::cout << "Checking winner" << std::endl;
-    char result = _checkDiagonals();
-
-    if (result == m_player[0]->getStoneChar())
-    {
-        std::cout << "Player1 wins!! Congratulations" << std::endl;
-    }
-    else if (result == m_player[1]->getStoneChar())
-    {
-        std::cout << "Player2 wins!! Congratulations" << std::endl;
-    }
-    else
-    {
-        /* do nothing */
-    }
-    
-}
-
-CGame::~CGame()
-{
-
-}
-//Methods
-
-//Destructors
+*/
