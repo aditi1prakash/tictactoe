@@ -13,50 +13,46 @@ static const int NUMBER_OF_MOVES {9};       /*! @brief Number of moves in the ga
 //Constructor
 CGame::CGame()
 {
-    initialize();
+    this->_init();
 }
 
-void CGame::initialize()
+void CGame::_init()
 {
-    m_board = new CBoard(3,3);  
-    m_player[0] = new CPlayer(m_board);
+    m_board = new CBoard(3,3);              /* Initialize the board object with dimensions of the board */
+    m_player[0] = new CPlayer(m_board);     /* Players play the game on the same board, hence passing the m_board pointer to player objects */
     m_player[1] = new CPlayer(m_board);
 }
 
 void CGame::play()
 {
+    /*TODO: Request character from users and set the value*/
     m_player[0]->setStoneChar('o');
     m_player[1]->setStoneChar('x');
-    // m_player[0]->m_board = this->m_board;   //Option1: Assign game class board object to player class board object
-    //Option 2: Pass the board object while creating the players
-
+ 
+    /*Print the board with default characters before the game starts*/
     m_board->print(); 
 
     int row_number{0};
     int column_number{0};
 
-    std::cout << "Player 1 starts the game" << std::endl;
-
+    /*Iterate for 9 times = number of positions on the board*/
     for(int moves = 0; moves < NUMBER_OF_MOVES; moves++)
     {
         /*Read the row and column where the player wishes to place their stone*/
         std::cout << "Enter position to place your stone (row column): ";
-        std::cin >> row_number >> column_number;
+        std::cin >> row_number >> column_number;            /*TODO: Read position instead of individual row and column variables, might require operator overloading*/
 
         CPosition position{row_number, column_number};
 
         if (m_board->isPositionEmpty(row_number, column_number))
-        {
-            // std::cout << "Entering if loop" << std::endl;
-            /*Player 1 is making the move*/
+        {   
+            /*Alternate between the two players*/
             if(moves % 2 == 0)
             {
-                // std::cout << "Player1 placing stone" << std::endl;
                 m_player[0]->placeStone(position);
             }
             else
             {
-                // std::cout << "Player2 placing stone" << std::endl;
                 m_player[1]->placeStone(position);
             }
         }
@@ -68,10 +64,12 @@ void CGame::play()
         
         if (_winnerAvailable())
         {
+            /*End the loop if there is a winner*/
             break;
         }
         else if (moves == (NUMBER_OF_MOVES - 1))
-        {
+        {   
+            /*Check for tie, for the last move*/
             std::cout << "It is a tie!!";
         }
     }
@@ -124,9 +122,10 @@ char CGame::_checkWinner()
 }
 
 bool CGame::_winnerAvailable()
-{
+{   
     char result = this->_checkWinner();
 
+    /*Check which player won*/
     if (result == m_player[0]->getStoneChar())
     {
         std::cout << "Player1 wins!! Congratulations" << std::endl;
@@ -143,9 +142,7 @@ bool CGame::_winnerAvailable()
 }
 
 CGame::~CGame()
-{
-
-}
+{}
 
 /* Extra code
 char CGame::_checkDiagonals()

@@ -7,10 +7,6 @@
 
 #include "CBoard.h"
 
-#define NUMBER_OF_ROWS      3
-#define NUMBER_OF_COLUMNS   3
-
-
 CBoard::CBoard(int rows, int columns):
     m_rows{rows}, m_columns{columns}
 {
@@ -21,12 +17,12 @@ CBoard::CBoard(int rows, int columns):
 void CBoard::print()
 {
     std::cout << std::endl;
-    
+    /*Iterate over all the rows and columns and print the board*/
     for(int row = 0; row < m_rows; row++)
     {
         for(int column = 0; column < m_columns; column++)
         {
-            std::cout << m_boardVector.at(row).at(column) << " ";  //TODO: Complete the logic to access board with a 2D 
+            std::cout << m_boardVector.at(row).at(column) << " ";   
         }
         std::cout << std::endl;
     }
@@ -34,9 +30,7 @@ void CBoard::print()
 
 bool CBoard::isPositionEmpty (int row, int column)
 {
-    // std::cout << "Checking for empty position" << std::endl;
-    // std::cout << row << " " << column;
-
+    /*Board is empty if the position still has the default board character*/
     if (m_boardVector.at(row).at(column) == DEFAULT_BOARD_CHAR)
         return true;
     else    
@@ -48,7 +42,7 @@ void CBoard::setElementAt (int row, int column, char element)
     m_boardVector.at(row).at(column) = element;
 }
 
-char CBoard::getElementAt (int row, int column)
+char CBoard::getElementAt (int row, int column) const
 {
     return m_boardVector.at(row).at(column);
 }

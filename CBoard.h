@@ -17,18 +17,17 @@
 class CBoard 
 {
 private:
-    int m_rows;         /*! @brief Number of rows on the board*/
-    int m_columns;      /*! @brief Number of columns on the board*/
-    CPosition m_position;   /*! @brief Represents a particular position on the board*/
-    std::vector<std::vector<uint8_t>> m_boardVector;   /*! @brief Array to represent board with size m_rows*m_columns */ //TODO: Improve array handling
-
-//Create an array for with row and column parameters from within the constructor, 
-//manipulate this array to maintain the player moves and stones
+    int m_rows;                                         /*! @brief Number of rows on the board*/
+    int m_columns;                                      /*! @brief Number of columns on the board*/
+    CPosition m_position;                               /*! @brief Represents a particular position on the board*/
+    std::vector<std::vector<uint8_t>> m_boardVector;    /*! @brief Vector to represent board with size = m_rows*m_columns */ //TODO: Map 2D vector as 1D..?
 
 public:
 
     /*!
-     * @brief Constructor CBoard class
+     * @brief Parametrised constructor CBoard class
+     * @param[IN]  int rows - Number of rows on the board
+     * @param[IN] int columns - Number of columns on the board
      */
     CBoard(int rows, int columns);
 
@@ -60,15 +59,13 @@ public:
      * @brief Setter method for rows
      * @details 
      * @param[IN] int - number of rows required for the board game
-     * @param[OUT] 
      */
     void setRows(int rows){this->m_rows = rows;}
     
     /*!
      * @brief Setter method for columns
      * @details 
-     * @param[IN] 
-     * @param[OUT] int - number of columns required for the board game
+     * @param[IN] int - number of columns required for the board game
      */
     void setColumns(int columns){this->m_columns = columns;}
 
@@ -89,7 +86,7 @@ public:
      * @param[IN] int column - Column position to set the element at
      * @param[OUT] char - Stone character at the position
      */
-    char getElementAt(int row, int column);
+    char getElementAt(int row, int column) const;
 
     /*!
      * @brief Setter method for columns

@@ -15,15 +15,16 @@ class CPlayer
 {
 private:
     char m_stoneChar;               /*! @brief Character that represents the player during the game */
-    //uint8_t m_moves;              /*! @brief Number of moves the player has */
-    uint8_t m_score;                /*! @brief Player's score */
     CBoard* m_board;                /*! @brief Pointer to board class */
-    // std::string m_playerName;       /*! @brief Name of the player*/
+    /*Further improvements*/
+    // uint8_t m_score;                /*! @brief Player's score */  /*TODO: Best of three concept, keep track of each player's score*/
+    // std::string m_playerName;       /*! @brief Name of the player*/  
 
 public:
 
     /*!
      * @brief Constructor CPlayer class
+     * @param[IN] CBoard* - pointer to board class object
      */
     CPlayer(CBoard* playerboard);
 
@@ -46,7 +47,7 @@ public:
     /*!
      * @brief Place stone on the board
      * @details Method used to place the player stone on the required position
-     * @param[IN] None
+     * @param[IN] CPosition - position class object {row, column}
      * @param[OUT] None 
      */
     void placeStone(CPosition pos);
